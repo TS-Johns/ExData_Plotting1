@@ -1,0 +1,17 @@
+{
+    "contents" : "## Author:  TS Johns\n## Date:    2014-06-08\n## About:   This is R script for Course Project 1, for the Exploratory Data Analysis course (part of John Hopkins - Data science Track)\n##          This script does not contain functions, but just a series of commands to create desired plot\n##          This script usues the base plotting package, as well as generating output in PNG file\n## Credits: This package was produced as a clone of the repo https://github.com/rdpeng/ExData_Plotting1\n\n## ----------------------------------- Step 01: Load Data -----------------------------------\n\n\n\n## ----------------------------------- Step 02: Set Variables -----------------------------------\n\n\n\n## ----------------------------------- Step 03: Init Graphic Device -----------------------------------\n\n\n\n## ----------------------------------- Step 04: Generate Plot -----------------------------------\n\n\n\n## ----------------------------------- Step 05: Clean-Up -----------------------------------\n",
+    "created" : 1402246000044.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2738145233",
+    "id" : "78ACA8E",
+    "lastKnownWriteTime" : 1402246542,
+    "path" : "C:/SourceControl/Coursera/DataScienceTrack/ExploringData/CP1/ExData_Plotting1/plot1.R",
+    "project_path" : "plot1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
