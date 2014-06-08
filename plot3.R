@@ -11,7 +11,7 @@ dataFilePathName <- "../Data/household_power_consumption.txt"
 dateStart <- "1/2/2007"
 dateEnd <- "2/2/2007"
 
-plotFileName <- "plot2.png"
+plotFileName <- "plot3.png"
 
 ## ----------------------------------- Step 02: Load & Get Data to Plot -----------------------------------
 
@@ -44,16 +44,38 @@ png(plotFileName, width=480, height=480) #Create PNG with desired height & width
 
 
 ## ----------------------------------- Step 04: Generate Plot -----------------------------------
-plot(plotData$DateTime, plotData$Global_active_power, type="l", 
-     main="",xlab="", ylab="Global Active Power (kilowatts)", xaxt="n")
+## In this example we will be sharing same plot for 3 graphs
+## To do so, need to set y-range fixed for each graph, so compute min/max
+ymin <- min(plotData$Sub_metering_1, plotData$Sub_metering_2, plotData$Sub_metering_3)
+ymax <- max(plotData$Sub_metering_1, plotData$Sub_metering_2, plotData$Sub_metering_3)
+
+plot(plotData$DateTime, plotData$Sub_metering_1, type="l", 
+     main="",xlab="", ylab="Energy sub metering", ylim=c(ymin, ymax), xaxt="n")
 # Options used are lines (default black color)
 #     blank title, overridding default x/y-label
 #     xact = "n" to force hiding of x-labels
+#     Plus set y range limits
 
 # Note - x labels seemd to autodisplay to correct value
 # However following code can be used to see any desired adte/time format
 axis.POSIXct(1, plotData$DateTime, format="%a")
 
+# Next we need to add additional plots - use par to suspend redrwaing plot
+par(new=TRUE)
+plot(plotData$Sub_metering_2, type="l", col="red",
+     main="",xlab="", ylab="",  ylim=c(ymin, ymax), xaxt="n", yaxt="n")
+
+par(new=TRUE)
+plot(plotData$Sub_metering_3, type="l", col="blue",
+     main="",xlab="", ylab="",  ylim=c(ymin, ymax), xaxt="n", yaxt="n")
+
+#set back to standrad value of false
+par(new=FALSE)
+
+legend("topright", 
+       c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), 
+       col=c("black","red","blue"), lwd=1)
+#note: need to include lwd since lines
 
 ## ----------------------------------- Step 05: Clean-Up -----------------------------------
 dev.off()   #close active graphic device pointing to png file
